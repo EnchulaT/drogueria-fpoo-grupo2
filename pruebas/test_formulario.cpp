@@ -40,7 +40,6 @@ int main(){
     }
 
     // TODO (Grupo 2): ¿el formulario muestra las opciones de forma de presentación?
-    // ¿pedirFecha devuelve lo que escribió el usuario? Agreguen sus propias pruebas.
     // Nota: la validación real es del Grupo 3; aquí use entradas válidas.
 
     return RESUMEN();
