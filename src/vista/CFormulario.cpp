@@ -11,8 +11,13 @@ CFormulario::CFormulario(CValidador& validador_, ostream& salida_) : validador(v
 }
 
 CMedicamento CFormulario::pedirMedicamento(){
-    // STUB (Grupo 2): implementar
-    return CMedicamento(0, "", 0, 0, 0, 0);
+    int id = validador.leerEntero("Ingrese la ID del medicamento", 1, 99999  );
+    string nombre = validador.leerTextoNoVacio("Ingrese el nombre del medicamento");
+    int fdpresentacion = validador.leerEntero("Ingrese el numero correspondiente a la forma de presentacion \n 1 = Tableta \n 2 = Caja \n 3 = Jarabe \n 4 = Ampolla \n 5 = Crema", 1, 5);
+    int cantidad = validador.leerEntero("Ingrese la cantidad de medicamento",1, 99999);
+    float costo = validador.leerFloatPositivo("Ingrese el costo del medicamento");
+    float precio = validador.leerFloatPositivo("Ingrese el precio del medicamento");
+    return CMedicamento(id, nombre, fdpresentacion, cantidad, costo, precio);
 }
 
 int CFormulario::pedirId(){
