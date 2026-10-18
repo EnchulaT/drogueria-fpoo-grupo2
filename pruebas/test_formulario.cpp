@@ -30,6 +30,15 @@ int main(){
         CHECK_EQ(formulario.pedirCantidad(), 7);
     }
 
+    SECCION("CFormulario: pedirFecha");
+    {
+        stringstream in("14/03/2024\n");
+        stringstream out;
+        CValidador validador(in, out);
+        CFormulario formulario(validador, out);
+        CHECK_EQ(formulario.pedirFecha(), "14/03/2024");
+    }
+
     // TODO (Grupo 2): ¿el formulario muestra las opciones de forma de presentación?
     // ¿pedirFecha devuelve lo que escribió el usuario? Agreguen sus propias pruebas.
     // Nota: la validación real es del Grupo 3; aquí use entradas válidas.

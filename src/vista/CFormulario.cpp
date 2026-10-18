@@ -27,5 +27,5 @@ int CFormulario::pedirCantidad(){
 
 string CFormulario::pedirFecha(){
     // STUB (Grupo 2): implementar
-    return "";
+    return validador.leerFecha("Ingrese la fecha (DD/MM/AAAA): ");
 }
