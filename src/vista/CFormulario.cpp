@@ -21,13 +21,11 @@ CMedicamento CFormulario::pedirMedicamento(){
 }
 
 int CFormulario::pedirId(){
-    // STUB (Grupo 2): implementar
-    return 0;
+    return validador.leerEntero("Ingrese la ID del medicamento", 1, 99999);
 }
 
 int CFormulario::pedirCantidad(){
-    // STUB (Grupo 2): implementar
-    return 0;
+    return validador.leerEntero("Ingrese la cantidad de medicamento", 1, 99999);
 }
 
 string CFormulario::pedirFecha(){
