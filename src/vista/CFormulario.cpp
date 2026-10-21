@@ -17,9 +17,23 @@ CMedicamento CFormulario::pedirMedicamento(){
     int cantidad = validador.leerEntero("Ingrese la cantidad de medicamento",1, 99999);
     float costo = validador.leerFloatPositivo("Ingrese el costo del medicamento");
     float precio = validador.leerFloatPositivo("Ingrese el precio del medicamento");
+
+    mostrarResumen(id, nombre, fdpresentacion, cantidad, costo, precio);
+
+
     return CMedicamento(id, nombre, fdpresentacion, cantidad, costo, precio);
 }
 
+void CFormulario :: mostrarResumen(int id, const string& nombre, int fdpresentacion, int cantidad, float costo, float precio){
+    string formas[] = {"", "tableta", "caja", "jarabe", "ampolla", "crema"};
+    salida << "\nResumen:\n";
+    salida << "ID: " << id << "\n";
+    salida << "nombre: " << nombre << "\n";
+    salida << "forma de presentación: " << formas[fdpresentacion] << "\n";
+    salida << "cantidad: " << cantidad << "\n";
+    salida << "costo: " << costo << "\n";
+    salida << "precio: " << precio << "\n";
+}
 int CFormulario::pedirId(){
     return validador.leerEntero("Ingrese la ID del medicamento", 1, 99999);
 }
