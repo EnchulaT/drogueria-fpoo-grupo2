@@ -1,0 +1,21 @@
+' Fragmento UML del Grupo 2 - CFormulario (capa Vista)
+@startuml
+class CFormulario{
+- validador: CValidador&
+- salida: ostream&
+
++ CFormulario(validador: CValidador&, salida: ostream& = cout)
++ pedirMedicamento(): CMedicamento
++ pedirId(): int
++ pedirCantidad(): int
++ pedirFecha(): string
+}
+
+note right of CFormulario
+  Extra: pedirMedicamento() muestra un resumen
+  de lo ingresado antes de crear el medicamento.
+end note
+
+CFormulario --> CValidador : usa para leer cada dato
+CFormulario ..> CMedicamento : crea
+@enduml

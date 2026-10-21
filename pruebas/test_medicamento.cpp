@@ -17,8 +17,28 @@ int main(){
     m.setCantidadDisponible(50);
     CHECK_EQ(m.getCantidadDisponible(), 50);
 
-    // TODO (Grupo 2): agreguen más casos. Ideas: cantidad 0, valores muy grandes,
-    // nombre vacío, copiar un medicamento (¿la copia es independiente?), etc.
+    SECCION("CMedicamento: cantidad en 0");
+    m.setCantidadDisponible(0);
+    CHECK_EQ(m.getCantidadDisponible(), 0);
+
+    SECCION("CMedicamento: valores muy grandes");
+    CMedicamento grande(99999, "Insulina", 4, 1000000, 250000.5f, 499999.5f);
+    CHECK_EQ(grande.getId(), 99999);
+    CHECK_EQ(grande.getCantidadDisponible(), 1000000);
+    CHECK_NEAR(grande.getCostoDeCompra(), 250000.5, 0.01);
+    CHECK_NEAR(grande.getPrecioDeVenta(), 499999.5, 0.01);
+
+    SECCION("CMedicamento: nombre vacio se guarda tal cual");
+    CMedicamento sinNombre(2, "", 2, 5, 100, 200);
+    CHECK_EQ(sinNombre.getNombre(), "");
+
+    SECCION("CMedicamento: la copia es independiente");
+    CMedicamento original(3, "Ibuprofeno", 2, 10, 500, 2500);
+    CMedicamento copia = original;
+    copia.setCantidadDisponible(99);
+    CHECK_EQ(original.getCantidadDisponible(), 10);
+    CHECK_EQ(copia.getCantidadDisponible(), 99);
+    CHECK_EQ(copia.getNombre(), "Ibuprofeno");
 
     return RESUMEN();
 }
